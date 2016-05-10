@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+ 
+    <session-factory>
+ 
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.ibm.db2.jcc.DB2Driver</property>
+        <property name="connection.url">jdbc:db2://vsisls4.informatik.uni-hamburg.de:50001/VSISP</property>
+        <property name="connection.username">vsisp15</property>
+        <property name="connection.password">eCULVnyP</property>
+ 
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.DB2Dialect</property>
+ 
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+ 
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+ 
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+ 
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+ 
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+ 
+        <mapping class="org.hibernate.sheet3.domain.Apartment"/>
+        <mapping class="org.hibernate.sheet3.domain.Contract"/>
+        <mapping class="org.hibernate.sheet3.domain.Estate"/>
+        <mapping class="org.hibernate.sheet3.domain.EstateAgent"/>
+        <mapping class="org.hibernate.sheet3.domain.House"/>
+        <mapping class="org.hibernate.sheet3.domain.Person"/>
+        <mapping class="org.hibernate.sheet3.domain.PersonPK"/>
+        <mapping class="org.hibernate.sheet3.domain.PurchaseContract"/>
+        <mapping class="org.hibernate.sheet3.domain.TenancyContract"/>	  
+ 		 
+    </session-factory>
+ 
+</hibernate-configuration>
