@@ -21,13 +21,13 @@ public class TenancyContract implements Serializable {
 	private Contract contract;
 	
 	@OneToOne
-	@JoinColumn(name="ESTATE_ID", nullable = true, insertable=false, updatable=false)
+	@JoinColumn(name="ESTATE_ID")
 	private Apartment apartment;
 	
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name="FIRST_NAME",nullable = false, insertable=false, updatable=false),
-		@JoinColumn(name="NAME",nullable = false, insertable=false, updatable=false)})
+		@JoinColumn(name="FIRST_NAME"),
+		@JoinColumn(name="NAME")})
 	private Person person;
 	
 	public TenancyContract() {
