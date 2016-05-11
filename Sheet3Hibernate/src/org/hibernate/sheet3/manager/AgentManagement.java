@@ -6,8 +6,6 @@ package org.hibernate.sheet3.manager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -25,7 +23,7 @@ public class AgentManagement {
 	/**
 	 * 
 	 */
-	EstateAgent eagent = new EstateAgent();
+	private EstateAgent eagent = new EstateAgent();
 	private static String loggedinUser;
 	
 	public AgentManagement(String loggedin) {
@@ -180,8 +178,7 @@ public class AgentManagement {
 	
 	public void createAgent(Session session){
 		autoGenerate(session);
-		System.out.println(eagent.getNAME());
-		System.out.println(eagent.getADDR());
+		System.out.println("Agent with Login: "+eagent.getLOGIN()+" created!");
 		session.save(eagent);
 		session.getTransaction().commit();
 		agentMenu();
@@ -192,8 +189,7 @@ public class AgentManagement {
 	    
         List<String> loginids = query.list();  
         if(loginids.isEmpty()){
-        	System.out.println("Invalid Login");
-        	loginid = null;
+        	loginid = "EA000";
         }
         else{
         	for(String loginvar: loginids)  
@@ -224,7 +220,6 @@ public class AgentManagement {
         		eagent = agent;
         	}
         }
-        
 	
 	}
 	public void updateAgent(Session session){

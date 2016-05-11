@@ -60,7 +60,6 @@ public class Main {
 			try{
 				String pass = new BufferedReader(new InputStreamReader(System.in)).readLine();
 				if(pass.equals("passwordagent")){
-					System.out.println(loggedinuser + " logged in.");
 					AgentManagement am = new AgentManagement(Main.loggedinuser);
 					am.agentMenu();
 				}
@@ -78,13 +77,13 @@ public class Main {
 
 			login();
 			System.out.println("Agent login successful for "+ Main.loggedinuser);
-//			EstateManagement est = new EstateManagement(Main.loggedinuser);
-//			est.estateMenu();
+			EstateManagement est = new EstateManagement(Main.loggedinuser);
+			est.estateMenu();
 		}
 		else if(choice=='3'){
-			System.out.println("Call Contract Management");
-//			ContractManagement contr = new ContractManagement(Main.loggedinuser);
-//			contr.contractMenu();
+		//	System.out.println("Call Contract Management");
+			ContractManagement contr = new ContractManagement(Main.loggedinuser);
+			contr.contractMenu();
 		}
 		else if(choice=='4'){
 			System.out.println("Thank you!");
